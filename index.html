@@ -9,98 +9,44 @@
 
 <body>
   <div class="container">
-    <div class="meta">
-      <div class="image"></div>
-      <div class="info">
-        <h1>On Web Typography</h1>
-        <p class="subtitle">`Tale of a dev obsessed with readability on the web`</p>
-        <div class="author">
-          <div class="authorImage"></div>
-          <div class="authorInfo">
-            <div class="authorName"><a href="https://codepen.io/lucagez">Luca Gesmundo</a></div>
-            <div class="authorSub">Nov 7 <span class="median-divider">·</span> 5 min read</div>
-          </div>
+    <div class="meta"></div>
+    <main class="article">
+
+      <h1>你本可以少写些 if-else</h1>
+      <p class="subtitle">`学习写代码的更多种可能性`</p>
+
+      <div class="author">
+        <div class="author-image"></div>
+        <div class="author-info">
+          <div class="author-name"><a href="https://github.com/Lionad-Morotar">Lionad Guirotar</a></div>
+          <div class="author-sub">May 13 <span class="median-divider">·</span> 7 min read</div>
         </div>
       </div>
-    </div>
-    <main class="article">
+
       <p>
-        <span class="first-letter">我</span>不喜欢业务代码中航天飞机式`if/else`语句, 它复杂而臃肿, 至少从美感而言, `switch`就比`if/else`优雅很多.
-        如果跨语言比较的话, 私以为ReasonML的模式匹配比起寻常的`switch`语句又要强上太多.
-        JS中对复杂判断的不同写法, 带来的感觉是很不同的, 这篇文章里, 我将简单介绍几种用于替代if/else的写法. 只有熟悉更多代码思路, 才能开阔我们的思维, <strong>如果不能学习写代码的更多可能性,
-          也许我们就成了被代码控制住的人</strong>.
+        <span class="first-letter">我</span>不喜欢业务代码中航天飞机式if/else语句, 它复杂而臃肿, 至少从美感而言, switch就比if/else优雅很多. 如果跨语言比较的话, 私以为ReasonML的模式匹配比起寻常的switch语句又要强上太多. JS中对复杂判断的不同写法, 带来的感觉是很不同的, 这篇文章里, 我将简单介绍几种用于替代if/else的写法. 只有熟悉更多代码思路, 才能开阔我们的思维, <strong>如果不能学习写代码的更多可能性, 也许我们就成了被代码控制住的人</strong>.
       </p>
       <p>
-        Looking for the arcane secrets that regulates good legibility, I immediately realized
-        that I needed to follow in the footsteps of the masters. So I started dissecting the rules that
-        makes <strong>Medium</strong> typography, well, great.
+        不过上述代码, 在Standard规范中是不被推荐的. ESLint会警告你要求将这行内容转化为if/else写法. 当然, 你也可以修改ESLint规范以关闭警告, 前提是你(及团队成员)喜欢这种写法, <strong>千万不要为了简化而简化</strong>.
       </p>
-      <p>There were long hours of <strong>tremendous effort</strong>, days and days of <strong>prolonged
-          pains</strong>...</p>
-      <blockquote>Now I want to share with you the results of those long hours 🦋</blockquote>
-      <h2>An unexpected journey</h2>
+
       <p>
-        <span class="first-letter">C</span>omes out that nothing is better than a big first letter to super-charge your
-        style.
-        Rules are simples. A big letter that spans exactly two rows. Play with <code>line-height</code> to get it right.
+        显然,  在这种重业务逻辑的地方if/else语句显得力不从心, 主要原因如下:
       </p>
-      <h2>The hero</h2>
-      <p>We all know who the leader is.<br>When designing a website you have to take into account fonts for three
-        sectors: the <strong>content</strong>, the <strong>UI</strong>, the <strong>brand</strong>.<br>Specifically I
-        found that the best free alternatives <i>(Google Fonts)</i> to the handcrafted fonts that
-        <strong>Medium</strong> uses are respectively <span class="highlighted">Lora</span>,
-        <span class="highlighted">Montserrat</span> and <span class="highlighted">Playfair Display</span>. <br>I
-        discovered with delight that the last one mimics almost perfectly the effect created especially for
-        <code>blockquote</code>.
-      </p>
-      <h2>Content font</h2>
+      <ol>
+        <li><strong>判断条件后置</strong>. <br> 也就是说, 在<code>} else if (serviceReason === '质量问题') {</code>一句中, 我们通常要在行末才能找到判断条件, 而些内容并没有高亮支持, 所以经常与下一行的普通代码混在一起, 让人眼花缭乱无法辨识.</li>
+        <li><strong>代码缩进不清晰</strong>. <br> 当判断层数增加, 或是花括号中的内容加长, 那么阅读代码的时候, 寻找if语句对应的结束位置总是给人带来负担.</li>
+        <li><strong>奢侈的换行</strong>. <br> 当if/else语句中的逻辑很短, 像<code>else { user.love(-5 }</code>这段代码, 占用了3行的位置显得过于奢侈.</li>
+      </ol>
+      
+      <h2>配置数据与业务逻辑分离</h2>
       <p>
-        The content font should be a serif one, to gently bring your eyes from one letter to the other with
-        the lowest amount of effort.<br><code>line-height</code> and <code>letter-spacing</code> are vital here. Play
-        with those parameters to make the most out of your
-        font of choice. However at <strong>Medium</strong> you'll find almost an empty line of space in the middle of
-        two lines of text (<code>line-height: 1.58;</code>).
-        While the space between the charachters is kept a little bit on the negative side (<code>letter-spacing:
-          -0.03;</code>) to make words feel more compacts.
+        配置数据与业务逻辑分离(下简称配置逻辑分离)没有先决条件, 和三目短路表达式一样, 你随时都可以开始在代码中使用它. 使用配置逻辑分离, 通常需要定义一个用来存放数据配置的对象, 同时要定义一个flag作为配置的键, 配置的值则可以是函数, 数组等任意类型的值. 在执行逻辑的地方, 只需要将判断条件与flag进行比对, 就可以获取到当前判断条件下的业务逻辑方法
       </p>
-      <h2>Brand font</h2>
-      <p>
-        The purpose of this font is to enforce the presence of our brand during the navigation experience.
-        We can use it for titles and, here and there, for some minutiae.
-      </p>
-      <blockquote>Blockquotes, for example 🤫</blockquote>
-      <h2>UI font</h2>
-      <p>
-        The font used for all the UI elements is preferably a sans-serif one. It should create contrast with the content
-        font.
-        Its color could be a little bit lighter than the one used for the main content. <br>It needs to be readable
-        given the background-color of your page
-        but not distracting from the main purpose of the page. <span class="highlighted">Reading!</span><br>You can use
-        it also for <code>h2</code> making the titles for your paragraphs. Here the color should be the same as the one
-        used for the main title.
-      </p>
-      <h2><span class="highlighted">The highlight</span></h2>
-      <p>To highlight a word or phrase you can wrap them in a <code>span</code> element and <span
-          class="highlighted">set the background to a color that reminds of your brand color identity</span>.</p>
-      <h1>Every Title</h1>
-      <p class="subtitle">`Needs a subtitle`</p>
-      <p>Here we find <code>rgba(0, 0, 0, 0.54)</code> to give meaningful informations without grabbing the attention
-        that the title, main charachter, deserves.</p>
-      <h2>The length</h2>
-      <p class="lineLength">
-        The length of a line of text should never be longer than <code>740px</code>. So our eyes are not forced to run
-        from left to right on the page. </p>
-      <h2>The color</h2>
-      <p>
-        The text color should be <code>rgba(0, 0, 0, 0.84)</code> on a <code>rgba(255, 255, 255, 1)</code> background to
-        ensure the best contrast possible.</p>
-      <h2>Conclusion</h2>
-      <p>As always, the strict first rule of design is that there are no strict rules.<br>But, if you are in trouble...
-      </p>
-      <blockquote>Use Typo.css ✍️</blockquote><br><br>
-      <p>Let me know what are your toughts about Web Typography, I am eager to hear from you!</p>
-      <p>
-        Happy readings,<br><i><a href="https://codepen.com/lucagez">Gez</a></i></p>
+      
+      <!-- <h2><span class="highlighted">The highlight</span></h2> -->
+      
+
     </main>
   </div>
 </body>
