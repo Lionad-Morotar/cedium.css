@@ -1,10 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Lato:400,700|Lora|Playfair+Display:700i,900');
-
-html,
-body {
-  margin: 0;
-  width: 100%;
-}
+@import url('./font.css');
 
 h1,
 h2,
