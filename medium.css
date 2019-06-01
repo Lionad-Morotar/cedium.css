@@ -5,6 +5,7 @@
   --text-black--lighter: rgba(0, 0, 0, 0.8);
   --text-gray: rgba(0, 0, 0, 0.54);
   --text-gray--lighter: rgba(0, 0, 0, .3);
+  --font-code: "Fira", "Consolas", "Monaco", "Courier New", "Courier", "monospace";
 }
 
 * {
@@ -82,24 +83,25 @@ a:hover {
 }
 
 blockquote {
-  font-family: "Playfair Display", serif;
-  font-size: 29px;
-  letter-spacing: 4px;
-  overflow-wrap: break-word;
-  margin: 2em 0 0 0;
-  padding: 1em 2em;
-  color: rgba(0, 0, 0, 0.48);
+  margin: 1em 0;
+  padding: .4em 0 .5em 2em;
+  border-left: solid 4px var(--text-gray);
+  font-size: 22px;
+  color: var(--text-gray);
+  letter-spacing: 1px;
+word-break: break-all;
+  text-align: justify;
 }
-blockquote::before {
+blockquote + p {
+  margin-top: .8em;
+}
+/* blockquote::before {
   content: '"';
   margin: 0 0 0 -0.5em;
 }
 blockquote::after {
   content: '"';
-}
-p+blockquote {
-  margin: 0;
-}
+} */
 
 ol {
   padding-inline-start: 2.45em;
@@ -121,6 +123,7 @@ mark,
 
 code {
   white-space: nowrap;
+  font-family: var(--font-code);
 }
 
 strong {
@@ -133,7 +136,7 @@ pre {
   border-radius: 4px;
   background: rgba(0,0,0,.05);
   line-height: 1.75;
-  font-family: "Fira", "Consolas", "Monaco", "Courier New", "Courier", "monospace";
+  font-family: var(--font-code);
   font-size: 16px;
   color: var(--text-black);
   white-space: pre-wrap;
