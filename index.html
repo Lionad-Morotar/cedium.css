@@ -38,12 +38,52 @@
         <li><strong>代码缩进不清晰</strong>. <br> 当判断层数增加, 或是花括号中的内容加长, 那么阅读代码的时候, 寻找if语句对应的结束位置总是给人带来负担.</li>
         <li><strong>奢侈的换行</strong>. <br> 当if/else语句中的逻辑很短, 像<code>else { user.love(-5 }</code>这段代码, 占用了3行的位置显得过于奢侈.</li>
       </ol>
+
+      <h2>逗号运算符</h2>
+      <p>
+        通过括号和逗号运算符, 我们可以把语句变成表达式去执行. 灵活运用逗号运算符可以使三目或短路支持一些更复杂的情况:
+      </p>
+<pre>
+if (action === '换货') {
+  store.checked && (
+    user.mail(recievedGoods),
+    store.mail(goods.AlphaStrike)
+  )
+  user.love(store.checked ? 5 : -5)
+}
+</pre>
       
       <h2>配置数据与业务逻辑分离</h2>
       <p>
         配置数据与业务逻辑分离(下简称配置逻辑分离)没有先决条件, 和三目短路表达式一样, 你随时都可以开始在代码中使用它. 使用配置逻辑分离, 通常需要定义一个用来存放数据配置的对象, 同时要定义一个flag作为配置的键, 配置的值则可以是函数, 数组等任意类型的值. 在执行逻辑的地方, 只需要将判断条件与flag进行比对, 就可以获取到当前判断条件下的业务逻辑方法
       </p>
-      
+<pre>
+// 使用Map进行数据配置
+const scoreHandler = new Map([
+  [/^score_-[0-9]{1,2}$/, () => (sendGift(['绿钻','蓝钻','红钻','黄钻','紫钻']))],
+  [/^score_[0-9]{1}$/, () => (sendGift(['蓝钻']))],
+  [/^score_1[0-9]{1}$/, () => (sendGift(['蓝钻', '红钻']))],
+  [/^score_2[0-9]{1}$/, () => (sendGift(['蓝钻', '红钻', '黄钻']))],
+  [/^score_3[0-9]{1}$/, () => (sendGift(['蓝钻', '红钻', '黄钻', '紫钻']))],
+  // ...
+])
+
+const userScore = 15
+const validScore = `score_${userScore}`
+let handle, entriess = scoreHandler.entries()
+while ({ value: handle, done } = entriess.next(), !done) {
+  const [scoreReg, handler] = handle
+  if (scoreReg.test(validScore)) {
+    handler() // 输出结果 "蓝钻"
+    entriess = { next: () => ({ value: null, done: true }) } // 终止循环
+  }
+}
+</pre>
+
+      <p>
+        配置数据与业务逻辑分离(下简称配置逻辑分离)没有先决条件, 和三目短路表达式一样, 你随时都可以开始在代码中使用它. 使用配置逻辑分离, 通常需要定义一个用来存放数据配置的对象, 同时要定义一个flag作为配置的键, 配置的值则可以是函数, 数组等任意类型的值. 在执行逻辑的地方, 只需要将判断条件与flag进行比对, 就可以获取到当前判断条件下的业务逻辑方法
+      </p>
+
       <!-- <h2><span class="highlighted">The highlight</span></h2> -->
       
 
