@@ -48,6 +48,9 @@
   -ms-grid-row: 1;
   -ms-grid-column: 2;
   grid-area: author-info;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   padding-left: 10px;
 }
 
