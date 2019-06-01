@@ -63,10 +63,17 @@ li {
   line-height: 2;
 }
 
+a:visited,
+a:active {
+  color: var(--text-black);
+  opacity: .8;
+}
 a {
+  color: var(--text-black);
   text-decoration: underline;
   text-decoration-color: var(--text-gray--lighter);
   text-underline-position: under;
+  user-select: none;
   transition: text-decoration-color .2s;
   cursor: pointer;
 }
