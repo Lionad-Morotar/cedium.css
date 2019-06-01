@@ -5,8 +5,8 @@
 .container {
   display: -ms-grid;
   display: grid;
-      -ms-grid-columns: auto 166px 740px 166px auto;
-      grid-template-columns: auto 166px 740px 166px auto;
+      -ms-grid-columns: auto 166px 50em 166px auto;
+      grid-template-columns: auto 166px 50em 166px auto;
       -ms-grid-rows: 0 auto 150px;
       grid-template-rows: 0 auto 150px;
       grid-template-areas:
@@ -96,8 +96,8 @@
 
 @media screen and (max-width: 1072px) {
   .container {
-        -ms-grid-columns: auto 740px auto;
-        grid-template-columns: auto 740px auto;
+        -ms-grid-columns: auto 50em auto;
+        grid-template-columns: auto 50em auto;
         grid-template-areas:
       ". img ."
       ". article ."
@@ -118,7 +118,7 @@
   }
 }
 
-@media screen and (max-width: 740px) {
+@media screen and (max-width: 50em) {
   .container {
         -ms-grid-rows: auto auto 150px;
         grid-template-rows: auto auto 150px;

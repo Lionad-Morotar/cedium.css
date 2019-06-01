@@ -1,43 +1,53 @@
 @import url('./font.css');
 
-h1,
-h2,
-p,
-i,
-a,
-.first-letter,
-.author-name a {
-  color: rgba(0, 0, 0, 0.84);
-  text-rendering: optimizeLegibility;
+:root {
+  --main-dark: rgba(0, 0, 0, 0.85);
+  --main-dark--lighter: rgba(0, 0, 0, 0.8);
 }
 
+* {
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2 {
+  margin-top: 2em;
+  margin-bottom: 0;
+  text-align: left;
+  color:  var(--main-dark);
+}
 h1 {
   font-family: "Playfair Display", serif;
   font-size: 48px;
-  text-align: left;
-  margin-bottom: 8px;
 }
-
 h2 {
   font-family: "Lato", sans-serif;
   font-size: 30px;
   font-weight: 700;
-  padding: 0;
-  margin: 45px 0 -13px -1.883px;
-  text-align: left;
   line-height: 70px;
   letter-spacing: 1px;
 }
 
 p, i, a {
-  margin-top: 22px;
+  margin-top: 2em;
+  margin-bottom: 0;
   font-family: "Lora";
   font-size: 21px;
-  letter-spacing: 0.28px;
+  color: var(--main-dark);
   line-height: 2;
+  text-rendering: optimizeLegibility;
+  text-align: justify; 
+  font-style: normal;
+  word-break: break-all;
 }
+h1 + p,
+h2 + p {
+  margin-top: 0;
+}
+
 li {
-  margin-top: 18px;
+  margin-top: 1em;
   font-family: "Lora";
   font-size: 21px;
   letter-spacing: 0.28px;
@@ -72,9 +82,7 @@ ol {
   padding-inline-start: 2.45em;
   padding-inline-end: 2.45em;
 }
-code {
-  white-space: nowrap;
-}
+
 li code {
   font-size: 18px;
   background: rgba(0,0,0,.05);
@@ -83,8 +91,17 @@ li code {
   padding: 3px .3em;
 }
 
-mark, .highlighted {
+mark, 
+.highlighted {
   background: #7DFFB3;
+}
+
+code {
+  white-space: nowrap;
+}
+
+strong {
+  color: var(--main-dark--lighter);
 }
 
 .first-letter {
@@ -100,9 +117,11 @@ mark, .highlighted {
 }
 
 .subtitle {
+  margin: .5em 0 1.2em 0;
   font-family: "Lato", sans-serif;
   color: rgba(0, 0, 0, 0.54);
-  margin: 0 0 24px 0;
 }
 
-::selection{background-color: lavender}
+::selection{
+  background-color: lavender
+}
