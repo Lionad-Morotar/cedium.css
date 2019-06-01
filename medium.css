@@ -3,6 +3,8 @@
 :root {
   --text-black: rgba(0, 0, 0, 0.85);
   --text-black--lighter: rgba(0, 0, 0, 0.8);
+  --text-gray: rgba(0, 0, 0, 0.54);
+  --text-gray--lighter: rgba(0, 0, 0, .3);
 }
 
 * {
@@ -33,7 +35,7 @@ h2 {
   letter-spacing: 1px;
 }
 
-p, i, a {
+p {
   margin-top: 2em;
   margin-bottom: 0;
   font-family: "Lora";
@@ -63,6 +65,13 @@ li {
 
 a {
   text-decoration: underline;
+  text-decoration-color: var(--text-gray--lighter);
+  text-underline-position: under;
+  transition: text-decoration-color .2s;
+  cursor: pointer;
+}
+a:hover {
+  text-decoration-color: var(--text-gray);
 }
 
 blockquote {
@@ -142,7 +151,7 @@ pre + p {
 .subtitle {
   margin: .5em 0 1.2em 0;
   font-family: "Lato", sans-serif;
-  color: rgba(0, 0, 0, 0.54);
+  color: var(--text-gray);
 }
 
 ::selection{
