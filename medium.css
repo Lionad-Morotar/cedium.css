@@ -18,7 +18,8 @@ body {
 }
 
 h1,
-h2 {
+h2,
+h3 {
   margin-top: 1.5em;
   margin-bottom: 0;
   text-align: left;
@@ -31,6 +32,14 @@ h1 {
 h2 {
   font-family: "Lato", sans-serif;
   font-size: 30px;
+  font-weight: 700;
+  line-height: 70px;
+  letter-spacing: 1px;
+}
+h3 {
+  margin-top: 1em;
+  font-family: "Lato", sans-serif;
+  font-size: 24px;
   font-weight: 700;
   line-height: 70px;
   letter-spacing: 1px;
@@ -52,7 +61,8 @@ p + p {
   margin-top: 1em;
 }
 h1 + p,
-h2 + p {
+h2 + p,
+h3 + p {
   margin-top: 0;
 }
 
@@ -92,8 +102,16 @@ blockquote {
 word-break: break-all;
   text-align: justify;
 }
+blockquote > p:nth-child(1) {
+  margin-top: 0;
+}
 blockquote + p {
   margin-top: .8em;
+}
+h1 + blockquote,
+h2 + blockquote,
+h3 + blockquote {
+  margin-top: 2em;
 }
 /* blockquote::before {
   content: '"';
@@ -103,17 +121,10 @@ blockquote::after {
   content: '"';
 } */
 
-ol {
+ol, 
+ul {
   padding-inline-start: 2.45em;
   padding-inline-end: 2.45em;
-}
-
-li code {
-  font-size: 18px;
-  background: rgba(0,0,0,.05);
-  border-radius: 3px;
-  margin: 0 3px;
-  padding: 3px .3em;
 }
 
 mark, 
@@ -122,9 +133,17 @@ mark,
 }
 
 code {
-  white-space: nowrap;
+  background: rgba(0,0,0,.05);
+  border-radius: 3px;
+  margin: 0 3px;
+  padding: 3px .3em;
+  font-size: 20px;
   font-family: var(--font-code);
 }
+li code {
+  font-size: 18px;
+}
+
 
 strong {
   color: var(--text-black--lighter);
@@ -164,6 +183,6 @@ pre + p {
   color: var(--text-gray);
 }
 
-::selection{
+::selection {
   background-color: lavender
 }
