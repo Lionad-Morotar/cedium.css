@@ -12,7 +12,7 @@
 
 ### Lionad's Blogs
 
-[Online Demo](https://lionad.netlify.com/articles/005-你本可以少写些if-else.html)
+[Online Demo](https://lionad.netlify.com/articles/005-你本可以少写些if-else.html) or
 [Github](https://github.com/Lionad-Morotar/blogs)
 
 ## run
