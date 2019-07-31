@@ -36,7 +36,7 @@ h1 {
 h2 {
   font-size: 30px;
   font-weight: 700;
-  line-height: 70px;
+  line-height: 2.333em;
   letter-spacing: 1px;
 }
 h3 {
@@ -52,7 +52,7 @@ p {
   margin-bottom: 0;
   font-size: 21px;
   color: var(--text-black);
-  line-height: 2;
+  line-height: 2em;
   text-rendering: optimizeLegibility;
   text-align: justify; 
   font-style: normal;
@@ -71,7 +71,7 @@ li {
   margin-top: 1em;
   font-size: 21px;
   letter-spacing: 0.28px;
-  line-height: 2;
+  line-height: 2em;
 }
 
 a:visited,
@@ -156,7 +156,7 @@ pre {
   padding: 20px;
   border-radius: 4px;
   background: rgba(0,0,0,.05);
-  line-height: 1.75;
+  line-height: 1.75em;
   font-size: 16px;
   color: var(--text-black);
   white-space: pre-wrap;
@@ -174,7 +174,7 @@ pre + p {
   overflow-wrap: break-word;
   font-size: 52px;
   font-weight: 500;
-  line-height: 84px;
+  line-height: 1.615em;
   display: block;
   position: relative;
   float: left;
