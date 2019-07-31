@@ -1,25 +1,19 @@
 {
-  "name": "medium.css",
+  "name": "cedium.css",
   "version": "1.0.2",
-  "description": "a minimal set of typography devoted to Medium.com",
-  "keywords": ["typography", "medium", "medium.com", "fonts"],
-  "main": "medium.css",
-  "style": "medium.css",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "description": "提供高效🚀清爽🍦友爱❤的中文阅读排版体验, 灵感源于 https://github.com/lucagez/medium.css",
+  "keywords": ["typography", "cedium", "cedium.com", "fonts"],
+  "main": "cedium.css",
+  "style": "cedium.css",
   "files": [
     "LICENSE.md",
-    "medium.css"
+    "cedium.css"
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lucagez/medium.css.git"
+    "url": "git+https://github.com/Lionad-Morotar/cedium.css"
   },
-  "author": "Luca Gesmundo",
+  "author": "Lionad",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/lucagez/medium.css/issues"
-  },
-  "homepage": "https://github.com/lucagez/medium.css#readme"
+  "homepage": "https://github.com/Lionad-Morotar/cedium.css#readme"
 }
