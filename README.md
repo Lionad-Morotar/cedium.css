@@ -2,12 +2,6 @@
 
 提供高效🚀清爽🍦友爱❤的中文阅读排版体验
 
-## demo
-
-![1](https://github.com/Lionad-Morotar/cedium.css/blob/master/browser_IMyvOr3OqY.png)
-![2](https://github.com/Lionad-Morotar/cedium.css/blob/master/browser_vgfBLqamHo.png)
-![3](https://github.com/Lionad-Morotar/cedium.css/blob/master/2Pw35OC3Bc.gif)
-
 ## project
 
 ### Lionad's Blogs
