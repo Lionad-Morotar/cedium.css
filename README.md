@@ -6,7 +6,7 @@
 
 ### Lionad's Blogs
 
-[Online Demo](https://www.lionad.art/articles/anysort.html)
+[Online Demo](https://www.lionad.art/articles/design-patterns-and-js-magic-pot.html)
 
 ## run
 
